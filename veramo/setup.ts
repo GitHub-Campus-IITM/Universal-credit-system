@@ -7,7 +7,8 @@ import {
   IDataStoreORM,
   IKeyManager,
   ICredentialPlugin,
-  ICredentialIssuer
+  ICredentialIssuer,
+  IAgentOptions
 } from '@veramo/core'
 
 // Core identity manager plugin
@@ -38,7 +39,7 @@ import { Entities, KeyStore, DIDStore, PrivateKeyStore, migrations } from '@vera
 import { DataSource } from 'typeorm'
 
 // This will be the name for the local sqlite database for demo purposes
-const DATABASE_FILE = 'database.sqlite'
+let DATABASE_FILE = 'database.sqlite'
 
 // You will need to get a project ID from infura https://www.infura.io
 const INFURA_PROJECT_ID = 'ee376705129e4330b655026fae0c9d00'
@@ -56,6 +57,8 @@ const KMS_SECRET_KEY =
     logging: ['error', 'info', 'warn'],
     entities: Entities,
   }).initialize()
+
+
 
   export const agent = createAgent<
   IDIDManager & IKeyManager & IDataStore & IDataStoreORM & IResolver & ICredentialPlugin & ICredentialIssuer
