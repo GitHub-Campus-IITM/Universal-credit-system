@@ -8,8 +8,12 @@ import {
   IKeyManager,
   ICredentialPlugin,
   ICredentialIssuer,
-  IAgentOptions
+  IAgentOptions,
+  IMessageHandler,
 } from '@veramo/core'
+
+import { W3cMessageHandler } from '@veramo/credential-w3c'
+import { MessageHandler } from '@veramo/message-handler'
 
 // Core identity manager plugin
 import { DIDManager } from '@veramo/did-manager'
@@ -38,6 +42,8 @@ import { Entities, KeyStore, DIDStore, PrivateKeyStore, migrations } from '@vera
 // TypeORM is installed with `@veramo/data-store`
 import { DataSource } from 'typeorm'
 
+import { DIDComm, DIDCommMessageHandler, IDIDComm } from '@veramo/did-comm'
+
 // This will be the name for the local sqlite database for demo purposes
 let DATABASE_FILE = 'database.sqlite'
 
@@ -61,8 +67,7 @@ const KMS_SECRET_KEY =
 
 
   export const agent = createAgent<
-  IDIDManager & IKeyManager & IDataStore & IDataStoreORM & IResolver & ICredentialPlugin & ICredentialIssuer
->({
+  IDIDManager & IKeyManager & IDataStore & IDataStoreORM & IResolver & ICredentialPlugin & ICredentialIssuer & IMessageHandler & IDIDComm>({
   plugins: [
     new KeyManager({
       store: new KeyStore(dbConnection),
@@ -88,6 +93,13 @@ const KMS_SECRET_KEY =
       }),
     }),
     new CredentialPlugin(),
+
+    new MessageHandler({
+      messageHandlers: [
+        new W3cMessageHandler(),
+      ],
+    }),
+    new DIDComm(),
   ],
 })
 

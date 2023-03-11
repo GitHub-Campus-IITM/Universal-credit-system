@@ -2518,7 +2518,7 @@
   "resolved" "https://registry.npmjs.org/@stablelib/constant-time/-/constant-time-1.0.1.tgz"
   "version" "1.0.1"
 
-"@stablelib/ed25519@^1.0.1", "@stablelib/ed25519@^1.0.2":
+"@stablelib/ed25519@^1.0.1", "@stablelib/ed25519@^1.0.2", "@stablelib/ed25519@^1.0.3":
   "integrity" "sha512-puIMWaX9QlRsbhxfDc5i+mNPMY+0TmQEskunY1rZEBPi1acBCVQAhnsk/1Hk50DGPtVsZtAWQg4NHGlVaO9Hqg=="
   "resolved" "https://registry.npmjs.org/@stablelib/ed25519/-/ed25519-1.0.3.tgz"
   "version" "1.0.3"
@@ -2938,10 +2938,20 @@
     "crypto-ld" "^7.0.0"
     "json-stringify-deterministic" "^1.0.7"
 
-"@veramo/core@^4.0.0", "@veramo/core@^4.1.1", "@veramo/core@^4.2.0":
-  "integrity" "sha512-HIqbXfCbwOAJelR5Ohsm22vr63cy6ND8Ua/+9wfMDAiymUUS7NryaJ/v6NRtnmIrNZqUMDdR9/TWdp4cCq5eBg=="
-  "resolved" "https://registry.npmjs.org/@veramo/core/-/core-4.2.0.tgz"
-  "version" "4.2.0"
+"@veramo/core-types@^5.1.2":
+  "integrity" "sha512-IVmbcn9yBE8v/x29nGvScCT9sIKu/iYJ8+dqN3jIVL2t//HRvNhrHsxw83Wb6DGqr46r0ebM+kEnPfZAAxdk/w=="
+  "resolved" "https://registry.npmjs.org/@veramo/core-types/-/core-types-5.1.2.tgz"
+  "version" "5.1.2"
+  dependencies:
+    "credential-status" "^2.0.5"
+    "debug" "^4.3.3"
+    "did-jwt-vc" "^3.1.0"
+    "did-resolver" "^4.0.1"
+
+"@veramo/core@^4.0.0", "@veramo/core@^4.1.1", "@veramo/core@^4.2.0", "@veramo/core@^4.3.0":
+  "integrity" "sha512-9M4WfW5GNrb+O3Xndm+9HDoAo2JRgKrNC29+d/QzgA5Aosu1w0cY0IYba6FWXPRwpQkCiRI8An4j7/9Tk11E1Q=="
+  "resolved" "https://registry.npmjs.org/@veramo/core/-/core-4.3.0.tgz"
+  "version" "4.3.0"
   dependencies:
     "credential-status" "^2.0.5"
     "debug" "^4.3.3"
@@ -3001,6 +3011,23 @@
     "@veramo/utils" "^4.1.1"
     "debug" "^4.3.3"
     "typeorm" "^0.3.10"
+
+"@veramo/did-comm@^5.1.2":
+  "integrity" "sha512-VNIVgTz+U1/YUfnGwlwfl4CAbU5nBU7uKu4UF8Y6FmavzHdRwVBB9jblBchoqtRwLY5r8ukpwFWD2HylzS03vA=="
+  "resolved" "https://registry.npmjs.org/@veramo/did-comm/-/did-comm-5.1.2.tgz"
+  "version" "5.1.2"
+  dependencies:
+    "@ethersproject/signing-key" "^5.7.0"
+    "@stablelib/ed25519" "^1.0.3"
+    "@veramo/core-types" "^5.1.2"
+    "@veramo/message-handler" "^5.1.2"
+    "@veramo/utils" "^5.1.2"
+    "cross-fetch" "^3.1.4"
+    "debug" "^4.3.3"
+    "did-jwt" "^6.9.0"
+    "did-resolver" "^4.0.1"
+    "uint8arrays" "^3.0.0"
+    "uuid" "^9.0.0"
 
 "@veramo/did-discovery@^4.1.1":
   "integrity" "sha512-rmUhkO1IA5AjH5JW1In2f0BSawy/SZvhHjXtDFXomRhN0SCFW573q36E71YZstuN8P/eaOdzwA2jHQIU78KeQg=="
@@ -3102,12 +3129,28 @@
     "elliptic" "^6.5.4"
     "uint8arrays" "^3.0.0"
 
-"@veramo/message-handler@^4.2.0":
-  "integrity" "sha512-bllhDlHl/4KUwlSFJjCWEHl8EqtcA+J8Va1qxJfInAeg6+XOR7ldKrrb3MVmsreuEkzUasdwQtdjHBzZCnMzcQ=="
-  "resolved" "https://registry.npmjs.org/@veramo/message-handler/-/message-handler-4.2.0.tgz"
-  "version" "4.2.0"
+"@veramo/message-handler@^4.1.1":
+  "integrity" "sha512-JQCiCslSIKMD3rzLAlhkM8PbuMSPP83+GvO6aA73bJCkaPu158/ZZcPz6B1HGwJx8AMxtv+SLgRpQNsAdU3ZLQ=="
+  "resolved" "https://registry.npmjs.org/@veramo/message-handler/-/message-handler-4.1.1.tgz"
+  "version" "4.1.1"
   dependencies:
-    "@veramo/core" "^4.2.0"
+    "@veramo/core" "^4.1.1"
+
+"@veramo/message-handler@^4.2.0":
+  "integrity" "sha512-rWDNLENGp8+XFdr/u5rBLLi8MSryOeQiUg+ROvmcr2VltvkOqMv8fsJ4O2m3g2HStYwTw3XbTBhRJERChyhUSA=="
+  "resolved" "https://registry.npmjs.org/@veramo/message-handler/-/message-handler-4.3.0.tgz"
+  "version" "4.3.0"
+  dependencies:
+    "@veramo/core" "^4.3.0"
+    "debug" "^4.3.4"
+
+"@veramo/message-handler@^5.1.2":
+  "integrity" "sha512-fov1wFOe5f4YoNpmjlo8pRyG2GJI0qlSW0Zvo3umhbfMc/yohcx8zAi4ZaR3uqxPGfsdsbCO2zU8+VSfUqcH0Q=="
+  "resolved" "https://registry.npmjs.org/@veramo/message-handler/-/message-handler-5.1.2.tgz"
+  "version" "5.1.2"
+  dependencies:
+    "@veramo/core-types" "^5.1.2"
+    "debug" "^4.3.4"
 
 "@veramo/utils@^4.1.1", "@veramo/utils@^4.2.0":
   "integrity" "sha512-jHkli0Qz9rFsWzPAdfJP3P2MFxvVMZPDXZvtVBm8x1fjAGrw/Htz/c5drhDAeBXnqPd9011/7cyvp6AOvdbc8Q=="
@@ -3125,6 +3168,26 @@
     "did-resolver" "^4.0.1"
     "elliptic" "^6.5.4"
     "multiformats" "9.7.1"
+    "uint8arrays" "^3.0.0"
+
+"@veramo/utils@^5.1.2":
+  "integrity" "sha512-1hcQzoTQ8q5LWfT1GzCA7wDyX95Pmz2xSVmV5P5otbAtrWk9GXn01snbaDlW+vz/a/iWKKcLlZbkRf5uLpHdnQ=="
+  "resolved" "https://registry.npmjs.org/@veramo/utils/-/utils-5.1.2.tgz"
+  "version" "5.1.2"
+  dependencies:
+    "@ethersproject/signing-key" "^5.7.0"
+    "@ethersproject/transactions" "^5.7.0"
+    "@stablelib/ed25519" "^1.0.3"
+    "@veramo/core-types" "^5.1.2"
+    "blakejs" "^1.1.1"
+    "credential-status" "^2.0.5"
+    "cross-fetch" "^3.1.5"
+    "debug" "^4.3.3"
+    "did-jwt" "^6.9.0"
+    "did-jwt-vc" "^3.1.0"
+    "did-resolver" "^4.0.1"
+    "elliptic" "^6.5.4"
+    "multiformats" "^9.9.0"
     "uint8arrays" "^3.0.0"
 
 "@xmldom/xmldom@~0.7.0":
@@ -7602,7 +7665,7 @@
   "resolved" "https://registry.npmjs.org/msrcrypto/-/msrcrypto-1.5.8.tgz"
   "version" "1.5.8"
 
-"multiformats@^9.4.2", "multiformats@^9.6.5":
+"multiformats@^9.4.2", "multiformats@^9.6.5", "multiformats@^9.9.0":
   "integrity" "sha512-HoMUjhH9T8DDBNT+6xzkrd9ga/XiBI4xLr58LJACwK6G3HTOPeMz4nB4KJs33L2BelrIJa7P0VuNaVF3hMYfjg=="
   "resolved" "https://registry.npmjs.org/multiformats/-/multiformats-9.9.0.tgz"
   "version" "9.9.0"
